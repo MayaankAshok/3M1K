@@ -4,7 +4,7 @@ import mysql.connector
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'Ghazal@03',
+    'password': 'mayaank2004',
     'database': '3M1K'
 }
 
@@ -29,21 +29,21 @@ def record_from_username(name):
     cursor.execute(select_query,select_values)
 
     records = cursor.fetchall()
+    return records
+    # if records:
+    #     for record in records:
+    #         print(record)
+    # else:
+    #     print("No records found for the given name.")
 
-    if records:
-        for record in records:
-            print(record)
-    else:
-        print("No records found for the given name.")
-
-
-insert_record(2022101074,'kavish','qwerty')
-insert_record(2022101076,'mayaank','qwertyuu')
-record_from_username('kavish')
+if __name__ == "__main__":
+    insert_record(2022101074,'kavish','qwerty')
+    insert_record(2022101076,'mayaank','qwertyuu')
+    record_from_username('kavish')
 
 
 # Commit the changes and close the connection
-cursor.close()
-connection.close()
+# cursor.close()
+# connection.close()
 
 
