@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { FLASK_URL } from "../Common";
 
-export default function Signup() {
+export default function Signup(prop) {
+  const userName = prop.name;
+  console.log(userName); 
   const [formData, setFormData] = useState({
     name: "",
     rollno: "",

@@ -2,32 +2,62 @@ import './App.css';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Signup from './components/Signup';
+import Chat from './components/Chat';
+import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+import Sidebar from './components/Sidebar';
 
 
 function App() {
+  
+  // set userName to be used in chat
+  const [user, setUser] = React.useState(''); 
+
+  const toggleName = (name) => {
+    setUser(name);
+  }
+
+  console.log(user);
   return (
     <>
       <Router>
         <div className="App">
-        <Navbar/>
-        <header className="App-header">
-        <Switch>
+        
+        <Switch>          
           <Route path="/signup">
-            <Signup/>
+            <Navbar/>
+            <header className="App-header">
+            <img src="bg.jpg" className="bg-image" alt="bg" />
+            <Signup name={user}/>
+            </header>
           </Route>
           <Route path="/login">
-            <Login/>
+            <Navbar/>
+            <header className="App-header">
+            <img src="bg.jpg" className="bg-image" alt="bg" />
+            <Login name={setUser} toggleName={toggleName}/>
+            </header>
+          </Route>
+          <Route path="/chat">
+              <Navbar/>
+              <header className="App-header-2">
+                <div id="container2">
+                  <Sidebar name={user}/>
+                  <Chat/>
+                </div>
+              </header> 
           </Route>
           <Route path="/">
+          <Navbar/>
+            <header className="App-header">
+            <img src="bg.jpg" className="bg-image" alt="bg" />
+            </header>
           </Route>
         </Switch>
-        </header>
         </div>
       </Router>
     </>
