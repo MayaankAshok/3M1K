@@ -10,7 +10,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import React from 'react';
+import React, {useState} from 'react';
 
 
 function App() {
@@ -27,41 +27,36 @@ function App() {
     <>
       <Router>
         <div className="App">
-        
+        <Navbar/>
+        <header className="App-header">
+        <img src="bg.jpg" className="bg-image" alt="bg" />
+        {/* <Login name={user} toggleName={toggleName}/> */}
+        {/* <Signup name="/signup"/> */}
         <Switch>          
           <Route path="/signup">
-            <Navbar/>
-            <header className="App-header">
-            <img src="bg.jpg" className="bg-image" alt="bg" />
+  
             <Signup name={user}/>
-            </header>
+            
           </Route>
           <Route path="/login">
-            <Navbar/>
-            <header className="App-header">
-            <img src="bg.jpg" className="bg-image" alt="bg" />
             <Login name={setUser} toggleName={toggleName}/>
-            </header>
           </Route>
           <Route path="/chat">
-              <Navbar/>
-              <header className="App-header-2">
+
                 <div id="container2">
                   <Sidebar name={user}/>
                   <Chat/>
                 </div>
-              </header> 
+
           </Route>
           <Route path="/home">
             <Home/>
           </Route>
           <Route path="/">
-          <Navbar/>
-            <header className="App-header">
-            <img src="bg.jpg" className="bg-image" alt="bg" />
-            </header>
+
           </Route>
         </Switch>
+        </header>
         </div>
       </Router>
     </>
