@@ -1,27 +1,19 @@
-import React from 'react'
-import './Navbar.css'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import React from 'react';
+import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="light" >
+            <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="light">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Eureka</a>
+                    <Link to="/" className="navbar-brand">Eureka</Link>
                     <form className="d-flex" role="search">
-                        <button type="button" className="button-54 mx-2 my-2">
-                        <Link className="nav-link" to="/login">Login</Link>
-                        </button>
-                        <button type="button" className="button-54 mx-2 my-2">
-                        <Link className="nav-link" to="/signup">SignUp</Link>
-                        </button>
+                        <Link to="/login" className="button-54 mx-2 my-2">Login</Link>
+                        <Link to="/signup" className="button-54 mx-2 my-2">SignUp</Link>
                     </form>
-                    
                 </div>
             </nav>
         </>
-    )
-    
-    
+    );
 }
