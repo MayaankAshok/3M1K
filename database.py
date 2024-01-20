@@ -128,10 +128,10 @@ def return_messages(username):
 
 
 
-
-insert_user(2022101074,'kavishthug','kavish','qwerty')
-insert_user(2022101076,'alephnot','mayaank','qwertyuu')
-record_from_rollnumber(2022101076)
+if __name__ == "__main__":
+    insert_user(2022101074,'kavishthug','kavish','qwerty')
+    insert_user(2022101076,'alephnot','mayaank','qwertyuu')
+    record_from_rollnumber(2022101076)
 
 
 
@@ -146,7 +146,7 @@ record_from_rollnumber(2022101076)
 
 
 # Commit the changes and close the connection
-cursor.close()
-connection.close()
+# cursor.close()
+# connection.close()
 
 
