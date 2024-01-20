@@ -5,7 +5,7 @@ from datetime import datetime
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'Ghazal@03',
+    'password': 'mayaank2004',
     'database': '3M1K'
 }
 
@@ -30,12 +30,9 @@ def record_from_rollnumber(roll_number):
     cursor.execute(select_query,select_values)
 
     records = cursor.fetchall()
+    return records
 
-    if records:
-        for record in records:
-            print(record)
-    else:
-        print("No records found for the given name.")
+
 
 
 def display_user_posts(roll_number):
@@ -72,6 +69,7 @@ def insert_into_posts(roll_number,course_id,content):
 
     cursor.execute(insert_query,insert_values)
     connection.commit()
+
 
 
 
