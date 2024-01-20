@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { FLASK_URL } from "../Common";
 
-export default function Signup() {
+export default function Signup(prop) {
+  const userName = prop.name;
+  console.log(userName); 
   const [formData, setFormData] = useState({
     name: "",
+    username: "",
     rollno: "",
     password: ""
   });
@@ -55,6 +58,20 @@ export default function Signup() {
                       id="name"
                       name="name"
                       value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="username" className="form-label">
+                      UserName
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      name="username"
+                      value={formData.username}
                       onChange={handleChange}
                       required
                     />

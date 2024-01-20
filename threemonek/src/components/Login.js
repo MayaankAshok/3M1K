@@ -1,7 +1,7 @@
 import { FLASK_URL } from '../Common';
 import React, { useState } from 'react';
 
-export default function Login() {
+export default function Login(prop) {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -14,9 +14,15 @@ export default function Login() {
         });
     };
 
+    const setName = prop.name;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
+        // console log the username
+        // console.log(formData.username);
+        setName(formData.username);
+        prop.toggleName(formData.username);
         try {
             const response = await fetch(FLASK_URL+'/login', {
                 method: 'POST',
@@ -37,6 +43,9 @@ export default function Login() {
             console.error('Error during login:', error);
         }
     };
+
+    const [username, setUsername] = useState('');
+
 
     return (
         <>
@@ -85,7 +94,7 @@ export default function Login() {
                                 <hr />
                                 <p className="card-text text-center">
                                     <small className="text-muted">
-                                        Don't have an account? <a href="/register">Register here</a>
+                                        Don't have an account? <a href="/signup">Register here</a>
                                     </small>
                                 </p>
                             </div>

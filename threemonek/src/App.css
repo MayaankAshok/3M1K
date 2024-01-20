@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #2c0449;
+  background-color: rgba(44, 4, 73, 0.8);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,9 +24,105 @@
   color: white;
 }
 
+.App-header-2 {
+  background-color: rgb(44, 4, 73);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  
+}
 .App-link {
   color: #61dafb;
 }
+
+#container2 {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  height: 90vh;
+  width : 90%;
+  border: 1px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sidebar{
+  flex: 1;
+  border-right: 1px solid white;
+  background-color: grey;
+}
+
+.user-name{
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px;
+  height: 80px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  /* /* border-radius: 10px;  */
+}
+
+.user-name:hover{
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.chat{
+  flex: 2;
+  background-color: black;
+}
+
+.chatProfile{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid white;
+  background-color: indigo;
+  padding: 10px;
+  justify-content: space-between;
+  /* border-radius: 10px; */
+}
+
+.input{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80px;
+  border-top: 1px solid white;
+  background-color: indigo;
+  padding: 10px;
+  justify-content: space-between;
+  /* border-radius: 10px; */
+ } 
+
+.inputBox{
+  flex: 1;
+  height: 48px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 20px;
+} 
+
+.messages{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  overflow-y: scroll;
+  height: calc(100% - 160px);
+} 
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +132,14 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
