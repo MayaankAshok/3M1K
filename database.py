@@ -52,6 +52,8 @@ def display_user_posts(username):
     cursor.execute(course_query)
     courses = cursor.fetchall()
 
+    rets = []
+
     # Display posts for each course
     for course in courses:
         course_id = course['Course_id']
@@ -59,14 +61,16 @@ def display_user_posts(username):
         cursor.execute(post_query)
         posts = cursor.fetchall()
 
-        return posts
+        print(f"Posts for Course {course_id}:")
+        for post in posts: 
+            rets += post
+    return rets
 
 def insert_into_user_courses(username,course_id):
     roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username}"
     cursor.execute(roll_query)
     roll_numbers = cursor.fetchall()
     roll_number = roll_numbers[0]['Roll_number']
-
     insert_query = "INSERT INTO `USER_COURSES` (`Roll_number`, `Course_id`) VALUES (%s, %s)"
     insert_values = (roll_number, course_id)
 
