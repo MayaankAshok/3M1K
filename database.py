@@ -32,9 +32,6 @@ def record_from_rollnumber(roll_number):
     records = cursor.fetchall()
     return records
 
-
-
-
 def display_user_posts(roll_number):
     
     # Connect to the database
@@ -45,6 +42,8 @@ def display_user_posts(roll_number):
     cursor.execute(course_query)
     courses = cursor.fetchall()
 
+    rets = []
+
     # Display posts for each course
     for course in courses:
         course_id = course['Course_id']
@@ -54,7 +53,8 @@ def display_user_posts(roll_number):
 
         print(f"Posts for Course {course_id}:")
         for post in posts: 
-            print(f"Post ID: {post['Post_id']}, Status: {post['Status']}, Content: {post['Content']}")
+            rets += post
+    return rets
 
 def insert_into_user_courses(roll_number,course_id):
     insert_query = "INSERT INTO `USER_COURSES` (`Roll_number`, `Course_id`) VALUES (%s, %s)"
