@@ -3,27 +3,31 @@
 
 CREATE TABLE `User`(
     `Roll_number` BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `Username` VARCHAR(255) NOT NULL,
     `Name` VARCHAR(255) NOT NULL,
     `password` VARCHAR(255) NOT NULL
 );
 CREATE TABLE `Messages`(
-    `Message_id` INT NOT NULL PRIMARY KEY,
+    `Message_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `User1_rn` BIGINT NOT NULL,
     `User2_rn` BIGINT NOT NULL,
-    `Content` VARCHAR(255) NOT NULL
-    `Timestamp` Timestamp
+    `Content` VARCHAR(255) NOT NULL,
+    `Timestamp` Timestamp DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `Courses`(
     `Course_id` INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Course_name` VARCHAR(255) NOT NULL
 );
+
 CREATE TABLE `POST`(
     `Post_id` INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `User_rn` BIGINT NOT NULL,
     `Course_id` INT NOT NULL,
     `Status` VARCHAR(255) NOT NULL,
-    `Content` VARCHAR(255) NOT NULL
+    `Content` VARCHAR(255) NOT NULL,
+    `Timestamp` Timestamp DEFAULT CURRENT_TIMESTAMP
+
 );
 
 CREATE TABLE `USER_COURSES`(

@@ -1,4 +1,5 @@
 import mysql.connector
+from datetime import datetime
 
 # Replace these variables with your actual MySQL database credentials
 db_config = {
@@ -12,11 +13,11 @@ db_config = {
 connection = mysql.connector.connect(**db_config)
 cursor = connection.cursor()
 
-def insert_record(roll_number,name,password):
+def insert_user(roll_number,username,name,password):
 
 
-    insert_query = "INSERT INTO `User` (`Roll_number`, `Name`, `password`) VALUES (%s, %s, %s)"
-    insert_values = (roll_number, name, password)
+    insert_query = "INSERT INTO `User` (`Roll_number`,`Username`, `Name`, `password`) VALUES (%s, %s, %s, %s)"
+    insert_values = (roll_number,username, name, password)
     
     cursor.execute(insert_query,insert_values)
     connection.commit()
@@ -75,15 +76,18 @@ def insert_into_posts(roll_number,course_id,content):
 
 
 
+    
 
 
 
-# insert_record(2022101074,'kavish','qwerty')
-# insert_record(2022101076,'mayaank','qwertyuu')
+
+insert_user(2022101074,'kavishthug','kavish','qwerty')
+insert_user(2022101076,'alephnot','mayaank','qwertyuu')
 record_from_rollnumber(2022101076)
 
-insert_into_user_courses(2022101074,1)
-insert_into_user_courses(2022101074,2)
+
+
+
 
 
 
