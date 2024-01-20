@@ -22,7 +22,12 @@ def insert_user(roll_number,username,name,password):
     cursor.execute(insert_query,insert_values)
     connection.commit()
 
-def record_from_rollnumber(roll_number):
+def record_from_rollnumber(username):
+
+    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username}"
+    cursor.execute(roll_query)
+    roll_numbers = cursor.fetchall()
+    roll_number = roll_numbers[0]['Roll_number']
 
     select_query = "SELECT * FROM `User` WHERE `Roll_number` = %s"
     select_values = (roll_number,)
