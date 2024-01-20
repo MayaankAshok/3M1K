@@ -39,11 +39,13 @@ export default function Signup(prop) {
     }
   };
 
+
+
   return (
     <>
-      <div className="container my-5">
-        <div className="row justify-content-center">
-          <div className="col-md-4">
+      <div className="container justify-content-center my-5">
+        <div className="row justify-content-center down">
+          <div className="col-md-10">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">Register</h5>
