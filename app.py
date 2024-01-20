@@ -1,28 +1,36 @@
 from flask import Flask, request
-
+from flask_cors import CORS, cross_origin
 # Initializing flask app
 app = Flask(__name__)
  
- 
-@app.route('/register')
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+@app.route('/register', methods=["POST"])
 def app_register():
-    data = request.json()
-    pass
+    data = request.json
+
+    print(data)
+    return 'OK', 200
+
 
 @app.route('/login')
 def app_login():
-    data = request.json()
-    pass
+    data = request.json
+    print(data)
+    return 'OK', 200
+
 
 @app.route('/get_courses')
 def app_get_courses():
-    data = request.json()
+    data = request.json
     pass
 
 @app.route('/set_courses')
 def app_set_courses():
     data = request.json()
-    pass
+    return 'OK', 200
+
 
 
 @app.route('/get_feed')

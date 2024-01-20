@@ -1,3 +1,4 @@
+import { FLASK_URL } from '../Common';
 import React, { useState } from 'react';
 
 export default function Login() {
@@ -17,7 +18,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch('/your-backend-endpoint', {
+            const response = await fetch(FLASK_URL+'/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
