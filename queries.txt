@@ -1,0 +1,23 @@
+insert_query = "INSERT INTO `User` (`Roll_number`, `Name`, `password`) VALUES ({}, {}, {})".format(roll_number,name,password)
+cursor.execute(insert_query)
+
+
+/////
+
+select_query = "SELECT * FROM `User` WHERE `Name` = {}".format(name_to_search)
+
+
+cursor.execute(select_query)
+
+records = cursor.fetchall()
+
+if records:
+    for record in records:
+        print(record)
+else:
+    print("No records found for the given name.")
+
+////
+
+
+

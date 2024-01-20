@@ -2,14 +2,15 @@ import './App.css';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Signup from './components/Signup';
+import Home from './components/home';
 import Chat from './components/Chat';
-import React, {useState} from 'react';
+import Sidebar from './components/Sidebar';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import Sidebar from './components/Sidebar';
+import React from 'react';
 
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
                   <Chat/>
                 </div>
               </header> 
+          </Route>
+          <Route path="/home">
+            <Home/>
           </Route>
           <Route path="/">
           <Navbar/>

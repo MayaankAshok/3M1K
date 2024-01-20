@@ -26,9 +26,6 @@ export default function Sidebar(props) {
   return (
     <>
       <div className="sidebar">
-        <div className="user-info">
-          <div className="user-name">Hello, {props.name}</div>
-        </div>
         <div className="chat-contacts">
           <h2>Chat Contacts</h2>
           <ul>
