@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FLASK_URL } from "../Common";
+import { Link } from "react-router-dom";
 
 export default function Signup(prop) {
   const userName = prop.name;
@@ -115,7 +116,7 @@ export default function Signup(prop) {
                 <hr />
                 <p className="card-text text-center">
                   <small className="text-muted">
-                    Already have an account? <a href="/login">Login here</a>
+                    Already have an account?<Link to="/login">Login here</Link>
                   </small>
                 </p>
               </div>

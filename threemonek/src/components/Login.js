@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FLASK_URL } from '../Common';
+import { Link } from 'react-router-dom';
 
 export default function Login(prop) {
     const [formData, setFormData] = useState({
@@ -43,9 +44,9 @@ export default function Login(prop) {
         }
     };
 
-    const myStyle = {
-        border: '1px solid black',
-    };
+    // const myStyle = {
+    //     border: '1px solid black',
+    // };
 
     return (
         <>
@@ -94,7 +95,7 @@ export default function Login(prop) {
                                     <hr />
                                     <p className="card-text text-center">
                                         <small className="text-muted">
-                                            Don't have an account? <a href="/register">Register here</a>
+                                            Don't have an account? <Link to="./signup">Register here</Link>
                                         </small>
                                     </p>
                                 </div>
