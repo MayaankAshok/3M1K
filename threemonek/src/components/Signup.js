@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FLASK_URL } from "../Common";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ export default function Signup() {
     e.preventDefault();
 
     try {
-      const response = await fetch("YOUR_BACKEND_API_ENDPOINT", {
+      const response = await fetch(FLASK_URL+"/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,15 +60,15 @@ export default function Signup() {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="username" className="form-label">
+                    <label htmlFor="rollno" className="form-label">
                       Roll No.
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      id="username"
-                      name="username"
-                      value={formData.username}
+                      id="rollno"
+                      name="rollno"
+                      value={formData.rollno}
                       onChange={handleChange}
                       required
                     />
