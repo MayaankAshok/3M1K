@@ -11,6 +11,7 @@ CREATE TABLE `Messages`(
     `User1_rn` BIGINT NOT NULL,
     `User2_rn` BIGINT NOT NULL,
     `Content` VARCHAR(255) NOT NULL
+    `Timestamp` Timestamp
 );
 
 CREATE TABLE `Courses`(
@@ -24,6 +25,14 @@ CREATE TABLE `POST`(
     `Status` VARCHAR(255) NOT NULL,
     `Content` VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE `USER_COURSES`(
+    `Roll_number` BIGINT NOT NULL,
+    `Course_id` INT  NOT NULL
+);
+
+
+
 ALTER TABLE
     `Messages` ADD CONSTRAINT `messages_user2_rn_foreign` FOREIGN KEY(`User2_rn`) REFERENCES `User`(`Roll_number`);
 ALTER TABLE

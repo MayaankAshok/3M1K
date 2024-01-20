@@ -6,6 +6,7 @@ export default function Signup(prop) {
   console.log(userName); 
   const [formData, setFormData] = useState({
     name: "",
+    username: "",
     rollno: "",
     password: ""
   });
@@ -57,6 +58,20 @@ export default function Signup(prop) {
                       id="name"
                       name="name"
                       value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="username" className="form-label">
+                      UserName
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      name="username"
+                      value={formData.username}
                       onChange={handleChange}
                       required
                     />
