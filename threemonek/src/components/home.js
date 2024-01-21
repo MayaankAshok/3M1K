@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import { FLASK_URL } from "../Common";
 
+<<<<<<< HEAD
+export default function Home(prop) {
+  const Username = prop.name;
+=======
 export default function Home() {
   const Username = "mad";
+>>>>>>> fc7abbc15baa64fb645ae78e5bdb90a2ef0baa9a
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -19,12 +24,17 @@ export default function Home() {
     }
   };
   const [cardsData, setCardsData] = useState([]);
+  const [CourseData, setCourseData] = useState([]);
+  const [UserCourses, setUserCourses] = useState([]);
 
   useEffect(() => {
     // Fetch data from Flask backend
 
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
+        const response = await fetch({ FLASK_URL } + "/home");
+=======
           const response = await fetch(FLASK_URL+"/get_feed?username="+Username, {
           method: "GET",
           headers: {
@@ -33,6 +43,7 @@ export default function Home() {
           // body: JSON.stringify(Username),  
         });
         console.log("HIIII")
+>>>>>>> fc7abbc15baa64fb645ae78e5bdb90a2ef0baa9a
         const data = await response.json();
         setCardsData(data); // Assuming data is an array of card objects
       } catch (error) {
@@ -43,9 +54,40 @@ export default function Home() {
     console.log("WTF")
   }, []); // Empty dependency array ensures the effect runs only once on component mount
 
+  useEffect(() => {
+    // Fetch data from Flask backend
+    const fetchData = async () => {
+      try {
+        const response = await fetch({ FLASK_URL } + "/allcourses");
+        const courses = await response.json();
+        setCourseData(courses); // Assuming data is an array of card objects
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures the effect runs only once on component mount
+
+  useEffect(() => {
+    // Fetch data from Flask backend
+    const fetchData = async () => {
+      try {
+        const response = await fetch({ FLASK_URL } + "/usercourses");
+        const Ucourses = await response.json();
+        setUserCourses(Ucourses); // Assuming data is an array of card objects
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures the effect runs only once on component mount
+
+  console.log(Username);
   return (
     <>
-      <div className="container">
+      <div className="container-home">
         <div className="left">
           <div className="Users-Courses">
             <div className="User-Course-Heading">
