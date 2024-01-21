@@ -42,10 +42,12 @@ def app_login():
          
 
 
-@app.route('/get_courses')
+@app.route('/get_courses', methods=["GET"])
 def app_get_courses():
-    data = request.json
-    pass
+    # data = request.json
+    data = get_courses()
+    return [{'id':d[0], 'name':d[1]} for d in data]
+    # pass
 
 @app.route('/set_courses')
 def app_set_courses():
