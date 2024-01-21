@@ -27,7 +27,7 @@
 }
 
 .App-header-2 {
-  background-color: rgb(44, 4, 73);
+  background-image: linear-gradient(to left, #2C0449, #9b78be);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -168,4 +168,29 @@ img {
 
 .hello{
   height: 500px;
+} 
+
+.upload{
+  top: -10px;
+  /* height:500px; */
+   width: 600px;
+   /* display: flex; */
+  /* align-items: left;  */
+  justify-content: center; 
+  cursor: pointer;
+}  
+
+ .form-control-2{
+  width: 600px;
+  
 }
+
+.dido{
+  
+  width: 300px;
+  justify-content: center;
+}
+
+/* .container-set{
+  width: 60%;
+} */

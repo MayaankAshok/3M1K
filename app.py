@@ -8,7 +8,9 @@ from database import \
     insert_into_user_courses, \
     insert_into_posts,\
     db_exit_func,\
-    get_courses
+    get_courses,\
+    return_messages,\
+    get_users_rn
 import atexit
 atexit.register(db_exit_func)
     
@@ -40,10 +42,12 @@ def app_login():
          
 
 
-@app.route('/get_courses')
+@app.route('/get_courses', methods=["GET"])
 def app_get_courses():
-    data = request.json
-    pass
+    # data = request.json
+    data = get_courses()
+    return [{'id':d[0], 'name':d[1]} for d in data]
+    # pass
 
 @app.route('/set_courses')
 def app_set_courses():
@@ -71,18 +75,41 @@ def app_get_feed():
 
 @app.route('/post')
 def app_post():
-    data = request.json()
+    data = request.json
     insert_into_posts(data['username'], data['course_id'], data['content'])
     return 'OK', 200
 
-@app.route('/get_chat')
+@app.route('/get_chat', methods = ['GET'])
 def app_get_chat():
-    data = request.json()
-    pass
+    data = request.args
+    print(data['username'])
+    feed = return_messages(data['username'])
+    users = get_users_rn()
+    print(feed, users)
+    users_d = {b:a for a,b in users}
+    if feed == () : return {'contacts':[], 'messages':[]}
+    print([[users_d[f[1]], users_d[f[2]] ]for f in feed])
+    flat_contacts = [a  for b in[[users_d[f[1]], users_d[f[2]] ]for f in feed]for a in b ]
+    # print(sum([[users_d[f[1]], users_d[f[2]] ]for f in feed]))
+    contacts = list(set(flat_contacts))
+    contacts.remove(data['username'])
 
+    messages = []
+    for contact in contacts:
+        messages.append({contact:[]})
+    
+    for f in feed:
+        a=  [users_d[f[1]], users_d[f[2]]]
+        a.remove(data['username'])
+        c_idx = contacts.index(a[0])
+        messages[c_idx][contacts[c_idx]].append({"sender": users_d[f[1]] == data['username'], "content" : f[3], "timestamp": f[4]})
+    for i in range(len(contacts)):
+        messages[i][contacts[i]].sort(key = lambda a : a['timestamp'])
+    print(contacts, messages)
+    return {'contacts':contacts, 'messages':messages}
+    return []
 @app.route('/send_chat')
 def app_send_chat():
-    data = request.json()
     pass
 
 

@@ -56,8 +56,8 @@ export default function Login(prop) {
 
     return (
         <>
-            <div className="container justify-content-center down md-5">
-                <div className="container my-5" >
+            <div className="container justify-content-center down mx-3">
+                <div className="container-set my-5" >
                     <div className="row justify-content-center down" >
                         <div className="col-md-10" >
                             <div className="card" >
