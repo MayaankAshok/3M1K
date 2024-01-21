@@ -18,7 +18,7 @@ import React, {useState} from 'react';
 function App() {
   
   // set userName to be used in chat
-  const [user, setUser] = React.useState(''); 
+  const [user, setUser] = React.useState('Defaukt'); 
 
   const toggleName = (name) => {
     setUser(name);
@@ -29,15 +29,7 @@ function App() {
     <>
       <Router>
         <div className="App">
-<<<<<<< HEAD
-        <Navbar/>
-        <header className="App-header">
-        <img src="bg.jpg" className="bg-image" alt="bg" />
-        {/* <Login name={user} toggleName={toggleName}/> */}
-        {/* <Signup name="/signup"/> */}
-=======
         
->>>>>>> 888777456623c641d4e706e5dbf84cef14052e9f
         <Switch>          
           <Route path="/signup">
           <Navbar/>
@@ -68,7 +60,7 @@ function App() {
             <Navbar2/>
             <header className="App-header">
             
-            <Home/>
+            <Home name={user}/>
             </header>
           </Route>
           <Route path="/">
@@ -80,10 +72,6 @@ function App() {
 
           </Route>
         </Switch>
-<<<<<<< HEAD
-        </header>
-=======
->>>>>>> 888777456623c641d4e706e5dbf84cef14052e9f
         </div>
       </Router>
     </>

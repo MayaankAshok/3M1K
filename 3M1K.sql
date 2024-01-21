@@ -26,6 +26,7 @@ CREATE TABLE `POST`(
     `Course_id` INT NOT NULL,
     `Status` VARCHAR(255) NOT NULL,
     `Content` MediumText NOT NULL,
+    'Price' int NOT NULL
     `Timestamp` Timestamp DEFAULT CURRENT_TIMESTAMP
 
 );
@@ -54,5 +55,10 @@ insert into courses (Course_name)values ("MDL");
 insert into USER_COURSES values (1234, 1);
 insert into USER_COURSES values (1234, 2);
 
-insert into POST (User_rn, Course_id, Status, Content) values (12345, 1, "Pending", "Plz help");
-insert into POST (User_rn, Course_id, Status, Content) values (12345, 2, "Pending", "Actually bro help");
+insert into POST (User_rn, Course_id, Status, 50, Content) values (12345, 1, "Pending", "Plz help");
+insert into POST (User_rn, Course_id, Status, 40, Content) values (12345, 2, "Pending", "Actually bro help");
+
+insert into Messages (User1_rn, User2_rn, Content) values (1234, 12345, "Heyyy");
+insert into Messages (User1_rn, User2_rn, Content) values (12345, 1234, "Hellloooo");
+insert into Messages (User1_rn, User2_rn, Content) values (12345678, 1234, "YOOOO");
+insert into Messages (User1_rn, User2_rn, Content) values (12345678, 12345, "Noooo");

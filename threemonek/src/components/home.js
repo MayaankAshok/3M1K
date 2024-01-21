@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import { FLASK_URL } from "../Common";
 
-export default function Home() {
-  const Username = "mad";
+export default function Home(props) {
+  // const Username = "mad";
+  const Username = props.name;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
