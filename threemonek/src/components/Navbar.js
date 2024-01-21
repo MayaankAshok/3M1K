@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
 
     const myStyle = {
-        border: '1px solid black',
         justifyContent : 'right',
     };
 
