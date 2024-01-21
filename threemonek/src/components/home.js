@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./home.css";
+import { FLASK_URL } from "../Common";
 
 export default function Home() {
+  const Username = "user";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(FLASK_URL + "/home", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Username),
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {
@@ -23,10 +39,49 @@ export default function Home() {
     <>
       <div className="container">
         <div className="left">
-          <h2>Left Container</h2>
-          <p>This is the left container.</p>
+          <div className="Users-Courses">
+            <div className="User-Course-Heading">
+              <h1>Your Courses</h1>
+            </div>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <label class="form-check-label" for="flexSwitchCheckDefault">
+                Default switch checkbox input
+              </label>
+            </div>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckChecked"
+              />
+              <label class="form-check-label" for="flexSwitchCheckChecked">
+                Checked switch checkbox input
+              </label>
+            </div>
+          </div>
+          <div className="Other-Courses">
+            <div className="Other-Course-Header">
+              <h1>Other Courses</h1>
+            </div>
+            <div class="cards">
+              <div class="card-header">Course 3</div>
+              <a href="#" class="follow-button">
+                Follow
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="right">
+        <div
+          className="right"
+          style={{ overflowY: "auto", maxHeight: "2000px" }}
+        >
           <h2>Right Container</h2>
           {cardsData.map((card, index) => (
             <div key={index} className="card text-center">
@@ -43,6 +98,58 @@ export default function Home() {
               </div>
             </div>
           ))}
+          <div className="card text-center">
+            <div className="card-header">card.courseID</div>
+            <div className="card-body">
+              <h5 className="card-title">card.assignmentID</h5>
+              <p className="card-text">card.description</p>
+              <a href="#" className="btn btn-primary">
+                Go somewhere
+              </a>
+            </div>
+            <div className="card-footer text-body-secondary">
+              card.timestamp
+            </div>
+          </div>
+          <div className="card text-center">
+            <div className="card-header">card.courseID</div>
+            <div className="card-body">
+              <h5 className="card-title">card.assignmentID</h5>
+              <p className="card-text">card.description</p>
+              <a href="#" className="btn btn-primary">
+                Go somewhere
+              </a>
+            </div>
+            <div className="card-footer text-body-secondary">
+              card.timestamp
+            </div>
+          </div>
+          <div className="card text-center">
+            <div className="card-header">card.courseID</div>
+            <div className="card-body">
+              <h5 className="card-title">card.assignmentID</h5>
+              <p className="card-text">card.description</p>
+              <a href="#" className="btn btn-primary">
+                Go somewhere
+              </a>
+            </div>
+            <div className="card-footer text-body-secondary">
+              card.timestamp
+            </div>
+          </div>
+          <div className="card text-center">
+            <div className="card-header">card.courseID</div>
+            <div className="card-body">
+              <h5 className="card-title">card.assignmentID</h5>
+              <p className="card-text">card.description</p>
+              <a href="#" className="btn btn-primary">
+                Go somewhere
+              </a>
+            </div>
+            <div className="card-footer text-body-secondary">
+              card.timestamp
+            </div>
+          </div>
         </div>
       </div>
     </>

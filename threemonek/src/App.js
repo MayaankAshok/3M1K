@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+import "./App.css";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar2";
+import Signup from "./components/Signup";
+import Home from "./components/home";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+=======
 import './App.css';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
@@ -12,6 +21,7 @@ import {
 } from "react-router-dom";
 import React, {useState} from 'react';
 
+>>>>>>> 6d3dc17d2b65f7be952905382046a845c54a56f7
 
 function App() {
   
@@ -27,6 +37,23 @@ function App() {
     <>
       <Router>
         <div className="App">
+<<<<<<< HEAD
+          <Navbar2 />
+          <header className="App-header">
+            <Switch>
+              <Route path="/signup">
+                <Signup />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/"></Route>
+            </Switch>
+          </header>
+=======
         <Navbar/>
         <header className="App-header">
         <img src="bg.jpg" className="bg-image" alt="bg" />
@@ -57,10 +84,10 @@ function App() {
           </Route>
         </Switch>
         </header>
+>>>>>>> 6d3dc17d2b65f7be952905382046a845c54a56f7
         </div>
       </Router>
     </>
-    
   );
 }
 
