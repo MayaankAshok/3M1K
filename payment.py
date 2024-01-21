@@ -14,7 +14,7 @@ def pay_in(phone_num , email , name,link_purpose):
             "send_email": True,
             "send_sms": True
         },
-        "link_id": "my_link_hdwdcbh", # custom_id_by_us_ # have to be changed for every time a new link is to be generated
+        "link_id": "my_link_hdwdfgrfbh", # custom_id_by_us_ # have to be changed for every time a new link is to be generated
         "link_amount": 100,
         "link_currency": "INR",
         "link_purpose": link_purpose # assigment name , course
@@ -30,9 +30,6 @@ def pay_in(phone_num , email , name,link_purpose):
     response = requests.post(url, json=payload, headers=headers)
 
     print(response.text)
-
-# pay_in(6353637373,'kavish2345@gmail.com','kavish')
-
 
 
 
@@ -60,4 +57,11 @@ def pay_out(amount,name,email,phone_num,remarks):
     response = requests.post(url, json=payload, headers=headers)
 
     print(response.text)
+
+
+pay_in(6353637373,'kavish2345@gmail.com','kavish','showing')
+
+
+
+
 

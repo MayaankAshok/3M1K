@@ -1,12 +1,16 @@
 from flask import Flask, request
+import json
 from flask_cors import CORS, cross_origin
 from database import \
     insert_user,\
     record_from_username, \
     display_user_posts,\
     insert_into_user_courses, \
-    insert_into_posts \
-        
+    insert_into_posts,\
+    db_exit_func,\
+    get_courses
+import atexit
+atexit.register(db_exit_func)
     
 # Initializing flask app
 app = Flask(__name__)
@@ -28,6 +32,7 @@ def app_login():
     record = record_from_username(data['username'])
     print(data)
     print(record)
+    print("+++++++++++++++++++++++")
     if record[0][3] == data['password']:
         return 'OK', 200
     else :
@@ -42,17 +47,27 @@ def app_get_courses():
 
 @app.route('/set_courses')
 def app_set_courses():
-    data = request.json()
+    data = request.json
     insert_into_user_courses(data['username'], data['course_id'])
     return 'OK', 200
 
 
 
-@app.route('/get_feed')
+@app.route('/get_feed', methods=['GET'])
 def app_get_feed():
-    data = request.json()
+    print("GET_FEED")
+    print(request.args)
+
+    data = request.args
     feed = display_user_posts(data['username'])
-    return feed
+    print(feed)
+    courses = get_courses()
+    print(courses)
+    courses_ids = [a[0] for a in courses]
+    final_feed = [{'courseID': courses[courses_ids.index(f[2])][1], "assignmentID": f[0], "description" : f[4], "timestamp": f[5]} for f in feed]
+    print(final_feed)
+    return final_feed 
+    return [{"courseID": "Hi", "assignmentID": "Hello", "description": "whatsup", "timestamp": "1234"},{"courseID": "Hi", "assignmentID": "Hello", "description": "whatsup", "timestamp": "1234"}]
 
 @app.route('/post')
 def app_post():
