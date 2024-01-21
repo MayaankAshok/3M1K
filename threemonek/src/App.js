@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+import "./App.css";
+import Login from "./components/Login";
+import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar2";
+import Signup from "./components/Signup";
+import Home from "./components/home";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+=======
 import './App.css';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
@@ -10,8 +19,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import React from 'react';
+import React, {useState} from 'react';
 
+>>>>>>> 6d3dc17d2b65f7be952905382046a845c54a56f7
 
 function App() {
   
@@ -27,45 +37,57 @@ function App() {
     <>
       <Router>
         <div className="App">
-        
+<<<<<<< HEAD
+          <Navbar2 />
+          <header className="App-header">
+            <Switch>
+              <Route path="/signup">
+                <Signup />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/"></Route>
+            </Switch>
+          </header>
+=======
+        <Navbar/>
+        <header className="App-header">
+        <img src="bg.jpg" className="bg-image" alt="bg" />
+        {/* <Login name={user} toggleName={toggleName}/> */}
+        {/* <Signup name="/signup"/> */}
         <Switch>          
           <Route path="/signup">
-            <Navbar/>
-            <header className="App-header">
-            <img src="bg.jpg" className="bg-image" alt="bg" />
+  
             <Signup name={user}/>
-            </header>
+            
           </Route>
           <Route path="/login">
-            <Navbar/>
-            <header className="App-header">
-            <img src="bg.jpg" className="bg-image" alt="bg" />
             <Login name={setUser} toggleName={toggleName}/>
-            </header>
           </Route>
           <Route path="/chat">
-              <Navbar/>
-              <header className="App-header-2">
+
                 <div id="container2">
                   <Sidebar name={user}/>
                   <Chat/>
                 </div>
-              </header> 
+
           </Route>
           <Route path="/home">
             <Home/>
           </Route>
           <Route path="/">
-          <Navbar/>
-            <header className="App-header">
-            <img src="bg.jpg" className="bg-image" alt="bg" />
-            </header>
+
           </Route>
         </Switch>
+        </header>
+>>>>>>> 6d3dc17d2b65f7be952905382046a845c54a56f7
         </div>
       </Router>
     </>
-    
   );
 }
 

@@ -1,0 +1,35 @@
+.form-control me-2{
+    width: 100%;
+}
+
+.navbar-brand{
+    font-size: 30px;
+}
+
+.form-check {
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 2.5em;
+    margin-bottom: .125rem;
+  }
+
+  .d-flex {
+    display: flex !important;
+    width: 80%;
+  }
+
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    padding-left: 15px;
+  }
+
+  .log-out{
+    
+  }
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity)) !important;
+    border-bottom: solid 2px gray;
+  }
