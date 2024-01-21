@@ -1,0 +1,52 @@
+/* Landing.css */
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* .hello {
+    /* border: 1px solid black; */
+/* } */ 
+
+/* Target each child element individually and apply animation */
+.hello > h2,
+.hello > h6,
+.hello > h1,
+.hello > h3,
+.hello > h4,
+.hello > h5 {
+    animation: slideIn 1s ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.hello > h2 {
+    animation-delay: 0.5s;
+}
+
+.hello > h6 {
+    animation-delay: 1s;
+}
+
+.hello > h1 {
+    animation-delay: 1.5s;
+}
+
+.hello > h3 {
+    animation-delay: 2s;
+}
+
+.hello > h4 {
+    animation-delay: 2.5s;
+}
+
+.hello > h5 {
+    animation-delay: 3s;
+}

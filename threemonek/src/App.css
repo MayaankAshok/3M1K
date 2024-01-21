@@ -153,3 +153,19 @@ img {
   justify-content: center;
   /* padding: 0%; */
 }
+
+#n2 {
+  font-size: 100px;
+  padding: 10px;
+}
+
+#n1, #n3, #n4{
+  font-size: 30px;
+  padding-top: 10px;
+
+}
+
+
+.hello{
+  height: 500px;
+}

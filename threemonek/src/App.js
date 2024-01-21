@@ -6,6 +6,7 @@ import Home from './components/home';
 import Chat from './components/Chat';
 import Sidebar from './components/Sidebar';
 import Navbar2 from './components/Navbar2';
+import Landing from './components/Landing';
 import {
   BrowserRouter as Router,
   Switch,
@@ -66,6 +67,7 @@ function App() {
             <Navbar/>
             <header className="App-header">
             <img src="bg.jpg" className="bg-image" alt="bg" />
+            <Landing/>
             </header>
 
           </Route>
