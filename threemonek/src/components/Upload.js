@@ -39,10 +39,36 @@ export default function Upload() {
         setPrice(e.target.value);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async() => {
         // Perform any necessary validation before submitting the data to the backend
         // You can replace the console.log with an API call to send the data to the backend
+        if (!selectedCourse || !question || !price) {
+            console.error("Please fill in all fields");
+            return;
+        }
 
+        try {
+            const response = await fetch(FLASK_URL + "/submit_question", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    course: selectedCourse,
+                    question: question,
+                    price: price,
+                }),
+            });
+
+            if (response.ok) {
+                console.log("Question submitted successfully!");
+                // You can reset the form or perform other actions after successful submission
+            } else {
+                console.error("Failed to submit question");
+            }
+        } catch (error) {
+            console.error("An error occurred:", error);
+        }
         console.log({
             course: selectedCourse,
             question: question,
