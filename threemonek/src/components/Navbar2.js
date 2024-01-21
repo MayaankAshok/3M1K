@@ -7,9 +7,9 @@ export default function Navbar() {
     <>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <Link class="navbar-brand" to="/home">
             Σｕｒｅｋａ！
-          </a>
+          </Link>
           <button
             class="navbar-toggler"
             type="button"
@@ -81,15 +81,26 @@ export default function Navbar() {
               </form>
             </div>
             <div class="chats">
+            <Link to="/upload">
               <button class="btn btn-outline-primary mx-2 my-2" type="submit">
-                <Link to="/chat">Chats</Link>
+                Upload
+                  
+                </button></Link>
+            </div>
+            <div class="chats">
+            <Link to="/chat">
+              <button class="btn btn-outline-primary mx-2 my-2" type="submit">
+                Chats
                   
                 </button>
+                </Link>
             </div>
             <div class="log-out">
+            <Link to="/login">
               <button class="btn btn-outline-danger" type="submit">
                 Log Out
               </button>
+            </Link>
             </div>
           </div>
         </div>
