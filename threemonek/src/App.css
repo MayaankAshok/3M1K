@@ -168,19 +168,19 @@ img {
 
 .hello{
   height: 500px;
-}
+} 
 
 .upload{
   top: -10px;
   /* height:500px; */
-  width: 600px;
-  /* display: flex; */
-  align-items: left;
-  justify-content: center;
+   width: 600px;
+   /* display: flex; */
+  /* align-items: left;  */
+  justify-content: center; 
   cursor: pointer;
-}
+}  
 
-.form-control{
+ .form-control-2{
   width: 600px;
   
 }
@@ -191,11 +191,6 @@ img {
   justify-content: center;
 }
 
-
-/* .container-price{
-  height: -500px;
-} */
-
-/* .mb-3{
-  height: 10px;
+/* .container-set{
+  width: 60%;
 } */

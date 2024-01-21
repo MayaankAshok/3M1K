@@ -67,7 +67,7 @@ export default function Upload() {
                     <div className="mb-5">
                         <h1 className="my-2">Enter the question</h1>
                         <textarea
-                            className="form-control"
+                            className="form-control-2"
                             id="exampleFormControlTextarea1"
                             rows="10"
                             value={question}
@@ -79,7 +79,7 @@ export default function Upload() {
                     <div className="mb-5 down">
                         <h1 className="my-2">Enter the price in Rs</h1>
                         <textarea
-                            className="form-control"
+                            className="form-control-2"
                             id="exampleFormControlTextarea1"
                             rows="1"
                             value={price}
