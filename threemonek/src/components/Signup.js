@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { FLASK_URL } from "../Common";
+import { Link } from "react-router-dom";
 
-export default function Signup() {
+export default function Signup(prop) {
+  const userName = prop.name;
+  console.log(userName); 
   const [formData, setFormData] = useState({
     name: "",
+    username: "",
     rollno: "",
     password: ""
   });
@@ -36,11 +40,13 @@ export default function Signup() {
     }
   };
 
+
+
   return (
     <>
-      <div className="container my-5">
-        <div className="row justify-content-center">
-          <div className="col-md-4">
+      <div className="container justify-content-center my-5">
+        <div className="row justify-content-center down">
+          <div className="col-md-10">
             <div className="card">
               <div className="card-body">
                 <h5 className="card-title">Register</h5>
@@ -55,6 +61,20 @@ export default function Signup() {
                       id="name"
                       name="name"
                       value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="username" className="form-label">
+                      UserName
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="username"
+                      name="username"
+                      value={formData.username}
                       onChange={handleChange}
                       required
                     />
@@ -96,7 +116,7 @@ export default function Signup() {
                 <hr />
                 <p className="card-text text-center">
                   <small className="text-muted">
-                    Already have an account? <a href="/login">Login here</a>
+                    Already have an account?<Link to="/login">Login here</Link>
                   </small>
                 </p>
               </div>
