@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FLASK_URL } from '../Common';
 
 export default function Upload() {
     const [courses, setCourses] = useState([]);
@@ -11,7 +12,12 @@ export default function Upload() {
         // Replace this with an actual API call in your application
         const fetchCourses = async () => {
             // Example API endpoint to fetch courses
-            const response = await fetch("/api/courses");
+            const response = await fetch(FLASK_URL+"/get_courses", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
             const data = await response.json();
 
             // Assuming the API response is an array of courses
