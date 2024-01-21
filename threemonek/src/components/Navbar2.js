@@ -80,6 +80,12 @@ export default function Navbar() {
                 </button>
               </form>
             </div>
+            <div class="chats">
+              <button class="btn btn-outline-primary mx-2 my-2" type="submit">
+                <Link to="/chat">Chats</Link>
+                  
+                </button>
+            </div>
             <div class="log-out">
               <button class="btn btn-outline-danger" type="submit">
                 Log Out
