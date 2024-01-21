@@ -13,6 +13,7 @@ import {
   Route,
 } from "react-router-dom";
 import React, {useState} from 'react';
+import Upload from './components/Upload';
 
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
           </Route>
           <Route path="/chat">
               <Navbar2/>
-              <header className="App-header">
+              <header className="App-header-2">
                 <div id="container2">
                   <Sidebar name={user}/>
                   <Chat/>
@@ -58,9 +59,15 @@ function App() {
           </Route>
           <Route path="/home">
             <Navbar2/>
-            <header className="App-header">
+            <header className="App-header-2">
             
             <Home name={user}/>
+            </header>
+          </Route>
+          <Route path="/upload">
+            <Navbar2/>
+            <header className='App-header-2'>
+              <Upload/>
             </header>
           </Route>
           <Route path="/">
