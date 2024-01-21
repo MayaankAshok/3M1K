@@ -19,7 +19,7 @@ import Upload from './components/Upload';
 function App() {
   
   // set userName to be used in chat
-  const [user, setUser] = React.useState(''); 
+  const [user, setUser] = React.useState('Defaukt'); 
 
   const toggleName = (name) => {
     setUser(name);
@@ -61,7 +61,7 @@ function App() {
             <Navbar2/>
             <header className="App-header-2">
             
-            <Home/>
+            <Home name={user}/>
             </header>
           </Route>
           <Route path="/upload">

@@ -123,14 +123,18 @@ def return_messages(username):
     roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = '{username}'"
     cursor.execute(roll_query)
     roll_numbers = cursor.fetchall()
-    roll_number = roll_numbers[0]['Roll_number']
+    print(username, roll_numbers)
+    roll_number = roll_numbers[0][0]
 
-    messages_query = f"SELECT * FROM `Messages` WHERE `User1_rn` = '{roll_number}' OR `User2_rn = '{roll_number}'"
+    messages_query = f"SELECT * FROM `Messages` WHERE `User1_rn` = {roll_number} OR `User2_rn` = {roll_number}"
 
     cursor.execute(messages_query)
     messages = cursor.fetchall()
     return messages
 
+def get_users_rn():
+    cursor.execute("Select Username, Roll_number from User;")
+    return cursor.fetchall()
 
     
 
