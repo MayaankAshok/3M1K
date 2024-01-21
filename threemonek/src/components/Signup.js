@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FLASK_URL } from "../Common";
 import { Link } from "react-router-dom";
+import { useHistory } from 'react-router-dom'; // Import useHistory
 
 export default function Signup(prop) {
   const userName = prop.name;
@@ -11,6 +12,8 @@ export default function Signup(prop) {
     rollno: "",
     password: ""
   });
+
+  const history = useHistory(); // Create a history object
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,6 +34,8 @@ export default function Signup(prop) {
       if (response.ok) {
         // Handle success (e.g., redirect to a success page)
         console.log("Registration successful");
+        history.push('/home');
+
       } else {
         // Handle error (e.g., display error message)
         console.error("Registration failed");

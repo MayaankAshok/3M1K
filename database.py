@@ -5,7 +5,7 @@ from datetime import datetime
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'Ghazal@03',
+    'password': 'mayaank2004',
     'database': '3M1K'
 }
 
@@ -22,12 +22,13 @@ def insert_user(roll_number,username,name,password):
     cursor.execute(insert_query,insert_values)
     connection.commit()
 
-def record_from_rollnumber(username):
+def record_from_username(username):
 
-    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username}"
+    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = '{username}'"
+    # select_values= (username,)
     cursor.execute(roll_query)
     roll_numbers = cursor.fetchall()
-    roll_number = roll_numbers[0]['Roll_number']
+    roll_number = roll_numbers[0][0]
 
     select_query = "SELECT * FROM `User` WHERE `Roll_number` = %s"
     select_values = (roll_number,)
@@ -43,12 +44,12 @@ def record_from_rollnumber(username):
 
 def display_user_posts(username):
 
-    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username}"
+    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = '{username}'"
     cursor.execute(roll_query)
     roll_numbers = cursor.fetchall()
     roll_number = roll_numbers[0]['Roll_number']
     
-    course_query = f"SELECT Course_id FROM `USER_COURSES` WHERE `Roll_number` = {roll_number})"
+    course_query = f"SELECT Course_id FROM `USER_COURSES` WHERE `Roll_number` = '{roll_number}')"
     cursor.execute(course_query)
     courses = cursor.fetchall()
 
@@ -57,7 +58,7 @@ def display_user_posts(username):
     # Display posts for each course
     for course in courses:
         course_id = course['Course_id']
-        post_query = f"SELECT * FROM `POST` WHERE `Course_id` = {course_id}"
+        post_query = f"SELECT * FROM `POST` WHERE `Course_id` = '{course_id}'"
         cursor.execute(post_query)
         posts = cursor.fetchall()
 
@@ -67,7 +68,7 @@ def display_user_posts(username):
     return rets
 
 def insert_into_user_courses(username,course_id):
-    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username}"
+    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = '{username}'"
     cursor.execute(roll_query)
     roll_numbers = cursor.fetchall()
     roll_number = roll_numbers[0]['Roll_number']
@@ -79,7 +80,7 @@ def insert_into_user_courses(username,course_id):
 
 def insert_into_posts(username,course_id,content):
 
-    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username}"
+    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = '{username}'"
     cursor.execute(roll_query)
     roll_numbers = cursor.fetchall()
     roll_number = roll_numbers[0]['Roll_number']
@@ -92,12 +93,12 @@ def insert_into_posts(username,course_id,content):
 
 
 def new_message(username1,username2,content):
-    roll_query_1 = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username1}"
+    roll_query_1 = f"SELECT `Roll_number` FROM `User` WHERE `Username` = '{username1}'"
     cursor.execute(roll_query_1)
     roll_numbers = cursor.fetchall()
     roll_number1 = roll_numbers[0]['Roll_number']
 
-    roll_query_2 = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username2}"
+    roll_query_2 = f"SELECT `Roll_number` FROM `User` WHERE `Username` = '{username2}'"
     cursor.execute(roll_query_2)
     roll_numbers = cursor.fetchall()
     roll_number2 = roll_numbers[0]['Roll_number']
@@ -109,12 +110,12 @@ def new_message(username1,username2,content):
     connection.commit()
 
 def return_messages(username):
-    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = {username}"
+    roll_query = f"SELECT `Roll_number` FROM `User` WHERE `Username` = '{username}'"
     cursor.execute(roll_query)
     roll_numbers = cursor.fetchall()
     roll_number = roll_numbers[0]['Roll_number']
 
-    messages_query = f"SELECT * FROM `Messages` WHERE `User1_rn` = {roll_number} OR `User2_rn = {roll_number}"
+    messages_query = f"SELECT * FROM `Messages` WHERE `User1_rn` = '{roll_number}' OR `User2_rn = '{roll_number}'"
 
     cursor.execute(messages_query)
     messages = cursor.fetchall()
@@ -140,7 +141,7 @@ def return_messages(username):
 if __name__ == "__main__":
     insert_user(2022101074,'kavishthug','kavish','qwerty')
     insert_user(2022101076,'alephnot','mayaank','qwertyuu')
-    record_from_rollnumber(2022101076)
+    record_from_username(2022101076)
 
 
 

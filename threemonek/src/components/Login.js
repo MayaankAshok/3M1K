@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'; // Import useHistory
 import { FLASK_URL } from '../Common';
 import { Link } from 'react-router-dom';
 
@@ -8,6 +9,8 @@ export default function Login(prop) {
         password: '',
     });
 
+    const history = useHistory(); // Create a history object
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -15,7 +18,7 @@ export default function Login(prop) {
         });
     };
 
-    const setName =prop.name;
+    const setName = prop.name;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +38,9 @@ export default function Login(prop) {
             if (response.ok) {
                 // Handle successful login, e.g., redirect to another page
                 console.log('Login successful');
-                
+
+                // Redirect to the home page
+                history.push('/home');
             } else {
                 // Handle unsuccessful login, show error message, etc.
                 console.error('Login failed');

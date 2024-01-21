@@ -1,11 +1,11 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 from database import \
-    insert_record,\
-    record_from_rollnumber, \
+    insert_user,\
+    record_from_username, \
     display_user_posts,\
     insert_into_user_courses, \
-    insert_into_posts, \
+    insert_into_posts \
         
     
 # Initializing flask app
@@ -17,7 +17,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/register', methods=["POST"])
 def app_register():
     data = request.json
-    insert_record(data['rollno'], data['username'], data['name'],  data['password'])
+    insert_user(data['rollno'], data['username'], data['name'],  data['password'])
     print(data) 
     return 'OK', 200
 
@@ -25,10 +25,10 @@ def app_register():
 @app.route('/login', methods=['POST'])
 def app_login():
     data = request.json
-    record = record_from_rollnumber(data['rollno'])
+    record = record_from_username(data['username'])
     print(data)
     print(record)
-    if record[0][2] == data['password']:
+    if record[0][3] == data['password']:
         return 'OK', 200
     else :
         return "Failed", 401
