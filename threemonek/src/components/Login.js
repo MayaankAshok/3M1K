@@ -35,6 +35,7 @@ export default function Login(prop) {
             if (response.ok) {
                 // Handle successful login, e.g., redirect to another page
                 console.log('Login successful');
+                
             } else {
                 // Handle unsuccessful login, show error message, etc.
                 console.error('Login failed');
