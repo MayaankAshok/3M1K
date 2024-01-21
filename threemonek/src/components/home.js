@@ -3,7 +3,7 @@ import "./home.css";
 import { FLASK_URL } from "../Common";
 
 export default function Home() {
-  const Username = "user";
+  const Username = "mad";
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -22,17 +22,25 @@ export default function Home() {
 
   useEffect(() => {
     // Fetch data from Flask backend
+
     const fetchData = async () => {
       try {
-        const response = await fetch("http://your-flask-api-endpoint");
+          const response = await fetch(FLASK_URL+"/get_feed?username="+Username, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            },
+          // body: JSON.stringify(Username),  
+        });
+        console.log("HIIII")
         const data = await response.json();
         setCardsData(data); // Assuming data is an array of card objects
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
+    console.log("WTF")
   }, []); // Empty dependency array ensures the effect runs only once on component mount
 
   return (

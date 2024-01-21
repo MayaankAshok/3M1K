@@ -38,7 +38,7 @@ export default function Login(prop) {
             if (response.ok) {
                 // Handle successful login, e.g., redirect to another page
                 console.log('Login successful');
-
+                // User
                 // Redirect to the home page
                 history.push('/home');
             } else {

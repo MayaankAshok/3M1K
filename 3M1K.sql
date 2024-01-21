@@ -25,7 +25,7 @@ CREATE TABLE `POST`(
     `User_rn` BIGINT NOT NULL,
     `Course_id` INT NOT NULL,
     `Status` VARCHAR(255) NOT NULL,
-    `Content` VARCHAR(255) NOT NULL,
+    `Content` MediumText NOT NULL,
     `Timestamp` Timestamp DEFAULT CURRENT_TIMESTAMP
 
 );
@@ -45,3 +45,14 @@ ALTER TABLE
     `POST` ADD CONSTRAINT `post_user_rn_foreign` FOREIGN KEY(`User_rn`) REFERENCES `User`(`Roll_number`);
 ALTER TABLE
     `Messages` ADD CONSTRAINT `messages_user1_rn_foreign` FOREIGN KEY(`User1_rn`) REFERENCES `User`(`Roll_number`);
+
+insert into  User(Roll_number, Username, Name, password) values (12345, "aleph", "Mank", "abcd");
+insert into courses (Course_name)values ("Science");
+insert into courses (Course_name)values ("Graphics");
+insert into courses (Course_name)values ("MDL");
+
+insert into USER_COURSES values (1234, 1);
+insert into USER_COURSES values (1234, 2);
+
+insert into POST (User_rn, Course_id, Status, Content) values (12345, 1, "Pending", "Plz help");
+insert into POST (User_rn, Course_id, Status, Content) values (12345, 2, "Pending", "Actually bro help");
